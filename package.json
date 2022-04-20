@@ -1,0 +1,22 @@
+{
+  "private": true,
+  "scripts": {
+    "dev": "nuxi dev",
+    "build": "nuxi build",
+    "start": "node .output/server/index.mjs"
+  },
+  "dependencies": {
+    "@pinia/nuxt": "^0.1.8",
+    "@vueuse/core": "^8.2.6",
+    "ant-design-vue": "^3.1.1",
+    "axios": "^0.26.1",
+    "pinia": "^2.0.13",
+    "postcss-loader": "^6.2.1",
+    "vue-router": "^4.0.14"
+  },
+  "devDependencies": {
+    "nuxt3": "^3.0.0-27501460.04a72f8",
+    "unplugin-auto-import": "^0.7.1",
+    "unplugin-vue-components": "^0.19.2"
+  }
+}
