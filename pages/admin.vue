@@ -1,6 +1,6 @@
 <template>
     <div>
-        ADMIN
+        ALREADY LOGGED IN
     </div>
 </template>
 <script lang="ts" setup>
