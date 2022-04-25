@@ -31,8 +31,11 @@ const onSubmit = () => {
         })
             .then(function (response) {
                 let token = response.data.t;
-                localStorage.setItem('token', token);
-                console.log(response);
+                if (token) {
+                    localStorage.setItem('token', token);
+                    console.log(response);
+                    navigateTo('/');
+                }
             })
             .catch(function (error) {
                 console.log(error);

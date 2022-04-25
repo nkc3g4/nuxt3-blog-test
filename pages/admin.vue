@@ -13,11 +13,6 @@ if (process.client) {
     axios.post(api, { title: "JWTTEST", content: "WWW", userid: 0 }, { headers: { "Authorization": `Bearer ${tk}` } })
         .then(res => {
             console.log(res.data);
-            // this.setState({
-            //     items: res.data,  /*set response data in items array*/
-            //     isLoaded: true,
-            //     redirectToReferrer: false
-            // })
 
         });
 

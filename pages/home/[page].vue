@@ -23,10 +23,10 @@
 <script lang='ts' setup>
 const route = useRoute()
 const current_page = ref(parseInt(route.params.page as string));
-const { data } = await useFetch('http://localhost:9589/testlist' + current_page.value + '.json')
+const { data } = await useFetch('http://localhost:7001/api/article/list/10/'+current_page.value)
 let data_val: any = data.value;
-const items = data_val.index;
-const item_total = parseInt(data_val.total);
+const items = data_val.data;
+const item_total = parseInt(data_val.count);
 definePageMeta({
     key: route => route.fullPath
 })
