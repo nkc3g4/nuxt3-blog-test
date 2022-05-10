@@ -18,4 +18,11 @@ export default defineNuxtConfig({
     // pinia plugin
     "@pinia/nuxt",
   ],
+  meta: {
+    script: [
+      { src: '/js/tinymce/tinymce.min.js', defer: true },
+      { src: '/js/tinymce/load.js', defer: true }
+    ],
+  }
+
 });

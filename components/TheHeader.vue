@@ -13,6 +13,7 @@
                 </a>
             </a-menu-item>
         </a-menu>
+
         <ClientOnly>
             <div v-if="logedin">
 
@@ -27,6 +28,7 @@
                     <a-textarea v-model:value="newcontent"
                         placeholder="Autosize height with minimum and maximum number of lines"
                         :auto-size="{ minRows: 2 }" />
+                    <textarea id="mytextarea">Hello, World!</textarea>
                     <a-button @click="newArticle">post NEW ARTICLE</a-button>
                 </div>
 
@@ -38,6 +40,8 @@
 </template>
 <script lang="ts" setup>
 import axios from 'axios';
+//import tinymce from '~~/public/js/tinymce/tinymce';
+
 
 const current = ref<string[]>(['index']);
 const userid = ref<number>(-1);
@@ -52,6 +56,8 @@ const logout = () => {
     }
     navigateTo('/');
 };
+
+
 const newArticle = () => {
     if (process.client) {
         let tk = localStorage.getItem('token');
@@ -65,6 +71,7 @@ const newArticle = () => {
     }
 };
 if (process.client) {
+
     let tk = localStorage.getItem('token');
     const api = `http://localhost:7001/api/user/1`;
     axios.get(api, { headers: { "Authorization": `Bearer ${tk}` } })
