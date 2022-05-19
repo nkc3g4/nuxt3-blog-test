@@ -17,7 +17,7 @@
     "vue-router": "^4.0.14"
   },
   "devDependencies": {
-    "nuxt": "^3.0.0-rc.1",
+    "nuxt": "^3.0.0-rc.3",
     "unplugin-auto-import": "^0.7.1",
     "unplugin-vue-components": "^0.19.2"
   }

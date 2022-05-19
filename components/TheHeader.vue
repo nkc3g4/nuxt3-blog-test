@@ -14,28 +14,25 @@
             </a-menu-item>
         </a-menu>
 
-        <ClientOnly>
-            <div v-if="logedin">
+        <div v-if="logedin">
 
-                User STATUS:
-                {{ userid }}
-                <a-button @click="logout">LOGOUT</a-button>
+            User STATUS:
+            {{ userid }}
+            <a-button @click="logout">LOGOUT</a-button>
 
-                <div>
-                    <a-textarea v-model:value="newtitle" placeholder="Autosize height based on content lines"
-                        auto-size />
-                    <div style="margin: 24px 0" />
-                    <a-textarea v-model:value="newcontent"
+            <div>
+                <a-textarea v-model:value="newtitle" placeholder="Autosize height based on content lines" auto-size />
+                <div style="margin: 24px 0" />
+                <!-- <a-textarea v-model:value="newcontent"
                         placeholder="Autosize height with minimum and maximum number of lines"
-                        :auto-size="{ minRows: 2 }" />
-                    <textarea id="mytextarea">Hello, World!</textarea>
-                    <a-button @click="newArticle">post NEW ARTICLE</a-button>
-                </div>
-
+                        :auto-size="{ minRows: 2 }" /> -->
+                <textarea id="mytextarea">{{ newcontent }}</textarea>
+                <a-button @click="newArticle">post NEW ARTICLE</a-button>
             </div>
 
+        </div>
 
-        </ClientOnly>
+
     </div>
 </template>
 <script lang="ts" setup>
@@ -47,7 +44,7 @@ const current = ref<string[]>(['index']);
 const userid = ref<number>(-1);
 const logedin = ref<boolean>(false);
 const newtitle = ref<string>('');
-const newcontent = ref<string>('');
+const newcontent = ref<string>('HELLO WORLD');
 const logout = () => {
     console.log('LOGOUT');
     if (process.client) {
@@ -71,7 +68,7 @@ const newArticle = () => {
     }
 };
 if (process.client) {
-
+    //document.write("tinymce.init({selector: '#mytextarea'});");
     let tk = localStorage.getItem('token');
     const api = `http://localhost:7001/api/user/1`;
     axios.get(api, { headers: { "Authorization": `Bearer ${tk}` } })
