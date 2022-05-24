@@ -2,7 +2,7 @@
   <div>
     <!-- <NuxtWelcome /> -->
     <TheHeader />
-    {{ $route.params.page }}
+    <!-- {{ $route.params.page }} -->
     <!-- I'M PARENT -->
     <a-layout class="layout">
       <a-layout-content style="padding: 0 50px; margin-top: 25px">
@@ -11,8 +11,8 @@
         >
           <NuxtLayout name="navbar"> Hello world! </NuxtLayout>
           <div v-for="item of items">
-            {{ item.id }}
-            <NuxtLink :to="`/articles/${item.id}`">{{ item.title }}</NuxtLink>
+            <!-- {{ item.id }} -->
+            <NuxtLink :to="`/articles/${item.id}`" class="articleTitle">{{ item.title }}</NuxtLink>
 
             <br />
             {{ item.content }}
@@ -52,3 +52,8 @@ function navigate(page, _) {
   });
 }
 </script>
+<style>
+.articleTitle{
+  font-size: large;
+}
+</style>
