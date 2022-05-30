@@ -28,7 +28,9 @@
         <!-- <a-textarea v-model:value="newcontent"
                         placeholder="Autosize height with minimum and maximum number of lines"
                         :auto-size="{ minRows: 2 }" /> -->
-        <textarea id="mytextarea">{{ newcontent }}</textarea>
+        <form method="post">
+          <textarea id="mytextarea">{{ newcontent }}</textarea>
+        </form>
         <a-button @click="newArticle">post NEW ARTICLE</a-button>
       </div>
     </div>
@@ -54,12 +56,14 @@ const logout = () => {
 
 const newArticle = () => {
   if (process.client) {
+    let newcontent = tinymce.activeEditor.getContent();
+    console.log(newcontent);
     let tk = localStorage.getItem("token");
     const api = `http://localhost:7001/api/article/new`;
     axios
       .post(
         api,
-        { title: newtitle.value, content: newcontent.value, userid: 0 },
+        { title: newtitle.value, content: newcontent, userid: 0 },
         { headers: { Authorization: `Bearer ${tk}` } }
       )
       .then((res) => {

@@ -22,7 +22,7 @@ export default defineNuxtConfig({
     script: [
       { src: "/js/tinymce/tinymce.min.js", defer: false },
       {
-        src: "https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js",
+        src: "/js/jquery-3.6.0.min.js",
         defer: false,
       },
       { src: "/js/tinymce/load.js", body: true, async: true, defer: true },
